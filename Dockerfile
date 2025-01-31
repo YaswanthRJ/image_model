@@ -6,9 +6,9 @@ RUN pip install torchserve torch-model-archiver torchvision Pillow
 
 RUN mkdir -p /app/model_store
 
-COPY model_store/shufflenet_v2.mar /app/model_store/shufflenet_v2.mar
+COPY model_store/shufflenet_v2_model.mar /app/model_store/
 COPY config.properties /app/config.properties
 
 EXPOSE 8080 8081
 
-CMD ["torchserve", "--start", "--model-store", "/app/model_store", "--models", "shufflenet_v2=shufflenet_v2.mar"]
+CMD ["torchserve", "--start", "--model-store", "/app/model_store", "--models", "shufflenet_v2=shufflenet_v2_model.mar"]
