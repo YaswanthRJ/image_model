@@ -11,8 +11,7 @@ WORKDIR /app
 RUN mkdir -p /app/model_store
 
 # Copy all model files into the container
-COPY model_store /app/model_store
-
+COPY model_store/ /app/model_store/
 # Expose the TorchServe port
 EXPOSE 8080
 
