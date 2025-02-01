@@ -22,5 +22,4 @@ COPY config.properties /app/config.properties
 # Expose TorchServe ports
 EXPOSE 8080 8081
 
-# Start TorchServe (now correctly using the config file)
-CMD ["torchserve", "--start", "--model-store", "/app/model_store", "--ts-config", "/app/config.properties"]
+CMD ["torchserve", "--start", "--model-store", "/app/model_store", "--models", "shufflenet_v2=shufflenet_v2_model.mar", "--ts-config", "/app/config.properties"]
